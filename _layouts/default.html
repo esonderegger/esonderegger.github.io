@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>{{ page.title }}</title>
+<link href="/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/">esonderegger</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/resume">Résumé</a></li>
+          <li><a href="/projects" title="Projects">Projects</a></li>
+          <li><a href="/photography" title="Photography">Photography</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+</header>
+<div id="content" class="container">
+{{ content }}
+</div>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/jquery.js"></script>
+</body>
+</html>
