@@ -3,8 +3,12 @@ layout: default
 ---
 <article>
 <header>
-<h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
-<p>posted by: Evan Sonderegger on <time datetime="2012-01-13T00:57:52-05:00" pubdate>{{ page.date | date_to_string }}</time> <a href="{{ page.url }}">&infin;</a></p>
+<h1 class="article-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+<p>posted by: Evan Sonderegger on 
+<time datetime="{{ page.date| date: "%Y-%m-%d" }}" pubdate>{{ page.date | date_to_string }}</time>
+<a href="{{ page.url }}">&infin;</a></p>
 </header>
+<div class="article-content">
 {{ content }}
+</div>
 </article>
