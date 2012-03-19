@@ -1,0 +1,13 @@
+<a data-toggle="modal" href="#{{ page.name }}"><img src="{{ page.thumbImage }}" /></a>
+
+<div class="modal photoModal hide" id="{{ page.name }}">
+    <div class="photoClose">
+    <a href="#" data-dismiss="modal" >close <i class="icon-remove"></i></a>
+    </div>
+    <a class="photoPrev" data-dismiss="modal" data-toggle="modal" href="{{ page.previous }}" ><i class="icon-chevron-left"></i></a><!--
+    --><img src="{{ page.largeImage }}" /><!--
+    --><a class="photoNext" data-dismiss="modal" data-toggle="modal" href="{{ page.next }}" ><i class="icon-chevron-right"></i></a>
+    <div class="photoCaption">
+      {{ content }}
+    </div>
+</div>

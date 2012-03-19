@@ -2,9 +2,12 @@ body {
   padding-top: 60px;
 }
 .photoModal {
+/*
   width: 840px;
   height: 582px;
   margin: -300px 0 0 -420px;
+*/
+  height: 90px;
 }
 .photoCaption {
   height: 30px;
@@ -13,7 +16,7 @@ body {
 }
 .photoClose {
   height: 20px;
-  width: 800px;
+/*  width: 800px;*/
   line-height: 20px;
   padding: 0px 20px;
   text-align: right
@@ -31,8 +34,10 @@ body {
   width: 20px;
   text-align: center;
 }
+/*
 .bigPhoto {
   display: inline-block;
   width: 800px;
   height: 532px;
 }
+*/
