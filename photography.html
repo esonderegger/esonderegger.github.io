@@ -2,7 +2,7 @@
 layout: default
 title: Evan Sonderegger on github
 ---
-{% for post in site.categories.photo-instruments %}
+{% for post in site.categories.photo-instruments reversed %}
 <a data-toggle="modal" href="#{{ post.name }}"><img src="{{ post.thumbImage }}" /></a>
 
 <div class="modal photoModal hide" id="{{ post.name }}">
