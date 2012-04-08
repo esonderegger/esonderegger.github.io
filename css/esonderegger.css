@@ -2,11 +2,6 @@ body {
   padding-top: 60px;
 }
 .photoModal {
-/*
-  width: 840px;
-  height: 582px;
-  margin: -300px 0 0 -420px;
-*/
   height: 90px;
 }
 .photoCaption {
@@ -34,10 +29,11 @@ body {
   width: 20px;
   text-align: center;
 }
-/*
-.bigPhoto {
+.photoThumb {
+  width: 188px;
+  height: 188px;
   display: inline-block;
-  width: 800px;
-  height: 532px;
 }
-*/
+.thumbImage {
+  box-shadow: 5px 5px 5px #888;
+}

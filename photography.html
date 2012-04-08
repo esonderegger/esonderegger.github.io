@@ -2,10 +2,15 @@
 layout: default
 title: Evan Sonderegger on github
 ---
+<h1>Instruments</h1>
+<p>This is a set I did for a photo class back in 2007.</p>
+<!-- This garbage is to eliminate spaces between divs.
 {% for post in site.categories.photo-instruments reversed %}
-<a data-toggle="modal" href="#{{ post.name }}"><img src="{{ post.thumbImage }}" /></a>
+--><div class="photoThumb" >
+<a data-toggle="modal" href="#{{ post.name }}"><img class="thumbImage" src="{{ post.thumbImage }}" /></a>
+</div><!--
 
-<div class="modal photoModal hide" id="{{ post.name }}">
+--><div class="modal photoModal hide" id="{{ post.name }}">
     <div class="photoClose">
     <a href="#" data-dismiss="modal" >close <i class="icon-remove"></i></a>
     </div>
@@ -15,5 +20,28 @@ title: Evan Sonderegger on github
     <div class="photoCaption">
       {{ post.caption }}
     </div>
-</div>
+</div><!--
 {% endfor %}
+This garbage is to eliminate spaces between divs. -->
+
+<h1>Other</h1>
+<p>These are some miscellaneous pictures I decided to upload for testing.</p>
+<!-- This garbage is to eliminate spaces between divs.
+{% for post in site.categories.photo-other reversed %}
+--><div class="photoThumb" >
+<a data-toggle="modal" href="#{{ post.name }}"><img class="thumbImage" src="{{ post.thumbImage }}" /></a>
+</div><!--
+
+--><div class="modal photoModal hide" id="{{ post.name }}">
+    <div class="photoClose">
+    <a href="#" data-dismiss="modal" >close <i class="icon-remove"></i></a>
+    </div>
+    <a class="photoPrev" data-dismiss="modal" data-toggle="modal" href="#{{ post.previousPhoto }}" ><i class="icon-chevron-left"></i></a><!--
+    --><img width="{{ post.imageWidth }}" height="{{ post.imageHeight }}" src="{{ post.largeImage }}" /><!--
+    --><a class="photoNext" data-dismiss="modal" data-toggle="modal" href="#{{ post.nextPhoto }}" ><i class="icon-chevron-right"></i></a>
+    <div class="photoCaption">
+      {{ post.caption }}
+    </div>
+</div><!--
+{% endfor %}
+This garbage is to eliminate spaces between divs. -->
