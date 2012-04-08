@@ -26,3 +26,19 @@ Music
 Off Bass Brass is a tuba/euphonium quartet consisting of Ryan McGeorge and  Mark Jenkins on euphonium
 and John Cradler and Tom Holtz on Tuba. They Recorded "Knock Yourself Out" at the Landon School for Boys in early 2009
 with me as their engineer. The CD was released on the [Potenza Music](http://www.potenzamusic.com/) label later that year.
+
+Web
+---
+
+### [This Site](/)
+This site is built using [Jekyll](http://jekyllrb.com/) and is hosted on [Github](http://pages.github.com/).
+It relies heavily on the [Twitter Bootstrap](http://twitter.github.com/bootstrap) framework.
+
+### [Osbourn High School Choirs](http://ohschoralboosters.com/)
+I built this site last summer using [Drupal](http://drupal.org/). Since it wasn't going to be involved with the maintenance
+of the site, ease of use of the admin pages was crucial.
+
+### [Teiber Trio](http://teibertrio.com/)
+The Teiber Trio conists of Regino Madrid (violin), Derek Smith (viola), and Charlie Powers (cello).
+I built this site in 2009 using [Wordpress](http://wordpress.org), knowing I would not be involved in 
+the site's maintenance. I also took the photos featured on the site.
