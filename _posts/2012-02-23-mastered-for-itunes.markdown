@@ -2,6 +2,7 @@
 layout: post
 category: blog
 title: Mastered for iTunes
+link: http://www.apple.com/itunes/mastered-for-itunes/
 ---
 
 When I saw this headline on HN I thought to myself "Wow, Apple is finally implementing ReplayGain in iTunes and on iDevices?". Sadly this is not the case. It could do more for the quality of music on iTunes than any increases in bit depth or sample rate.

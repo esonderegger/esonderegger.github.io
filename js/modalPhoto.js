@@ -46,11 +46,11 @@ document.ontouchend = function() {
    //swipe left
    if( self.swipeLeft && self.swipe ) {
       self.moveTo(self.current-1);
-      moveRight();               
+      moveLeft();               
    //swipe right
    } else if(self.swipe) {
       self.moveTo(self.current+1);
-      moveLeft();
+      moveRight();
    }            
 }
 document.ontouchmove = function(e){

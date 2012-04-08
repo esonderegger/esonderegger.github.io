@@ -3,7 +3,11 @@ layout: default
 ---
 <article>
 <header>
-<h1 class="article-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+{% if post.link %}
+<h1 class="article-title"><a href="{{ page.link }}">{{ page.title }}</a></h1>
+{% else %}
+<h1 class="article-title">{{ page.title }}</h1>
+{% endif %}
 <p>posted by: Evan Sonderegger on 
 <time datetime="{{ page.date| date: "%Y-%m-%d" }}" pubdate>{{ page.date | date_to_string }}</time>
 <a href="{{ page.url }}">&infin;</a></p>
