@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Evan Sonderegger's Resume
+active: resume
 ---
 
 EXPERIENCE

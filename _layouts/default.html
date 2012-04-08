@@ -14,10 +14,26 @@
       <a class="brand" href="/">esonderegger</a>
       <div class="nav-collapse">
         <ul class="nav">
+          {% if page.active == "home" %}
           <li class="active"><a href="/">Home</a></li>
+          {% else %}
+          <li><a href="/">Home</a></li>
+          {% endif %}
+          {% if page.active == "resume" %}
+          <li class="active"><a href="/resume.html">Résumé</a></li>
+          {% else %}
           <li><a href="/resume.html">Résumé</a></li>
+          {% endif %}
+          {% if page.active == "projects" %}
+          <li class="active"><a href="/projects.html" title="Projects">Projects</a></li>
+          {% else %}
           <li><a href="/projects.html" title="Projects">Projects</a></li>
+          {% endif %}
+          {% if page.active == "photography" %}
+          <li class="active"><a href="/photography.html" title="Photography">Photography</a></li>
+          {% else %}
           <li><a href="/photography.html" title="Photography">Photography</a></li>
+          {% endif %}
         </ul>
       </div>
     </div>

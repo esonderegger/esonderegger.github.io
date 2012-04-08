@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Evan Sonderegger on github
+active: projects
 ---
 Projects
 ========
