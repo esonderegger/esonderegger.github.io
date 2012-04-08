@@ -36,9 +36,7 @@ jpgCount = 0
 for test in images:
   if test[-4:] == '.jpg':
     jpgCount += 1 
-#i = 0
 
-#for image in images:
 for i in range(jpgCount):
   image = setName + '-' + str(i + 1) + '.jpg'
   postPath = os.getcwd() + '/_posts/' + now.strftime("%Y-%m-%d-") + setName + '-' + format(i + 1, "03d") + '.html'
@@ -69,6 +67,5 @@ for i in range(jpgCount):
   f.write('imageHeight: ' + str(im.size[1]) + '\n')
   f.write('---' + '\n')
   f.close()
-  #im.thumbnail((170,170))
   outfile = os.getcwd() + '/photography/' + setName + '/thumb/' + setName + '-thumb-' + str(i + 1) + '.jpg'
   makeThumbnail(im, outfile)
