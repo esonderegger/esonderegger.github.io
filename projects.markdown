@@ -17,7 +17,7 @@ Twitter Bootstrap. [Click here to see a demo.](http://esonderegger.github.com/ph
 
 Working with the Jekyll posts system added a little bit of complexity. I
 decided to make each photo its own post and create a python script that auto-generates the html files
-that live in the _posts directory.
+that live in the posts directory.
 
 Music
 -----
