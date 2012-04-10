@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: span9
 ---
 <article>
 <header>
@@ -8,8 +8,7 @@ layout: default
 {% else %}
 <h1 class="article-title">{{ page.title }}</h1>
 {% endif %}
-<p>posted by: Evan Sonderegger on 
-<time datetime="{{ page.date| date: "%Y-%m-%d" }}" pubdate>{{ page.date | date_to_string }}</time>
+<p><time datetime="{{ page.date| date: "%Y-%m-%d" }}" pubdate>{{ page.date| date: "%A %B %d, %Y" }}</time>
 <a href="{{ page.url }}">&infin;</a></p>
 </header>
 <div class="article-content">

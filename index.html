@@ -4,7 +4,7 @@ title: Evan Sonderegger on github
 active: home
 ---
 <div class="row">
-<div class="span8">
+<div class="span7">
 {% for post in site.categories.blog %}
 <article>
 <header>
@@ -18,7 +18,12 @@ active: home
 <a href="{{ post.url }}">&infin;</a></p>
 </header>
 <div class="article-content">
+{% if post.intro %}
+{{ post.intro }}
+<p><a href="{{ post.url }}">read more</a></p>
+{% else %}
 {{ post.content }}
+{% endif %}
 </div>
 </article>
 {% endfor %}

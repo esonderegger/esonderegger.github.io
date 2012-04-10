@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: span9
 title: Evan Sonderegger's Resume
 active: resume
 ---

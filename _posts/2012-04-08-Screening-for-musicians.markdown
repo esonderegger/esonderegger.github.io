@@ -2,6 +2,9 @@
 layout: post
 category: blog
 title: Screening by Audition
+intro: "<p>There have been several threads on Hacker News lately about screening applicants for progrmaming positions and what filters work as opposed to what ones don't. Here is a comment I posted comparing hiring programmers to classical music auditions:</p>
+
+<p>My field (classical music) has a similar application screening problem (lots of applicants, very few good ones). Our chosen screening process, the audition, is imperfect for many of the same reasons given for why puzzle solving sometimes falls short when it comes to screening for developers:</p>"
 ---
 There have been several threads on Hacker News lately about screening applicants for progrmaming positions and what filters work as opposed to what ones don't. Here is a comment I posted comparing hiring programmers to classical music auditions:
 

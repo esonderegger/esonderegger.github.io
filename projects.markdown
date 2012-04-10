@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: span9
 title: Evan Sonderegger on github
 active: projects
 ---
@@ -32,7 +32,8 @@ Web
 
 ### [This Site](/)
 This site is built using [Jekyll](http://jekyllrb.com/) and is hosted on [Github](http://pages.github.com/).
-It relies heavily on the [Twitter Bootstrap](http://twitter.github.com/bootstrap) framework.
+It relies heavily on the [Twitter Bootstrap](http://twitter.github.com/bootstrap) framework. I'm especially
+happy with it because posts and pages are written in [Markdown](http://daringfireball.net/projects/markdown/).
 
 ### [Osbourn High School Choirs](http://ohschoralboosters.com/)
 I built this site last summer using [Drupal](http://drupal.org/). Since it wasn't going to be involved with the maintenance
