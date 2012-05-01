@@ -265,34 +265,45 @@ function isGameWon(){
   });
   return returnVal;
 }
+function endGameWin(){
+/**
+* endGameWin congratulates the user, shows flags where the mines were, and adds the
+* gameOver class to the table to prevent further clicks.
+*/
+  $('#winLossRow').text('You win! Congratulations!');
+  $('.mine').each(function() {
+    $(this).html('<img src="/img/glyphicons_266_flag.png" />');
+  });
+  $("#mineSweeperGame").addClass('gameOver');
+}
+function endGameLose(){
+/**
+* endGameLose shows all the mines in the game, alerts the user to their loss, and adds the
+* gameOver class to the table to prevent further clicks.
+*/
+  $('#winLossRow').text('You lose!');
+  $('.mine').each(function() {
+    $(this).html('<img src="/img/glyphicons_021_snowflake.png" />');
+    $(this).css("border","1px solid");
+    $(this).css("border-color","#777");
+    $(this).css("height","38px");
+    $(this).css("width","38px");
+    if ($(this).css("background-color") == 'rgb(187, 187, 187)'){
+      $(this).css("background-color","#aaa");
+    }
+  });
+  $("#mineSweeperGame").addClass('gameOver');
+}
 function validateGame(){
 /**
-* validateGame checks to see if the game is won. If so, it congratulates the user and adds flags
-* to all the tiles where mines were left unrevealed. Otherwise, it shows all the mines, leaving
-* the tile where the user may have clicked on a mine with a red background.
-* in either case, we add the class of 'gameOver' to the table to prevent the user from
-* continuing to play.
+* validateGame checks to see if the game is won and then calls the function to end the game.
 */
   var gameWon = isGameWon();
   if (gameWon){
-    $('#winLossRow').text('You win!');
-    $('.mine').each(function() {
-      $(this).html('<img src="/img/glyphicons_266_flag.png" />');
-    });
+    endGameWin();
   } else {
-    $('#winLossRow').text('You lose!');
-    $('.mine').each(function() {
-      $(this).html('<img src="/img/glyphicons_021_snowflake.png" />');
-      $(this).css("border","1px solid");
-      $(this).css("border-color","#777");
-      $(this).css("height","38px");
-      $(this).css("width","38px");
-      if ($(this).css("background-color") == 'rgb(187, 187, 187)'){
-        $(this).css("background-color","#aaa");
-      }
-    });
+    endGameLose();
   }
-  $("#mineSweeperGame").addClass('gameOver');
 }
 function saveGame(){
 
