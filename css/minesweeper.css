@@ -27,3 +27,10 @@ h1 {
   height: 40px;
   line-height: 40px;
 }
+.savedGame {
+  height: 30px;
+  line-height: 30px;
+}
+a {
+  color: #555;
+}
