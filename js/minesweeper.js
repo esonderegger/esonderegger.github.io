@@ -306,10 +306,75 @@ function validateGame(){
   }
 }
 function saveGame(){
-
+/**
+* minesweeperGames is a localStorage item that is an array of arrays, encoded into JSON
+* each saved game consists of the epoch time in milliseconds at index 0
+* and the html of the #mineSweeperGame table at index 1
+* saveGame gets mineSweeperGames from localStorage, parses it into an array, creates a new
+* saved game, pushes it into the array, sets the localStorage item, and refreshes the list
+* of saved games
+*/
+  if (localStorage.getItem('minesweeperGames')){
+    var games = JSON.parse(localStorage.getItem('minesweeperGames'));
+  } else {
+    var games = [];
+  }
+  var newGame = [new Date().getTime(), $("#mineSweeperGame").html()];
+  games.push(newGame);
+  localStorage.setItem('minesweeperGames', JSON.stringify(games));
+  displaySavedGames();
 }
-function loadGame(){
-
+function displaySavedGames(){
+/**
+* minesweeperGames is a localStorage item that is an array of arrays, encoded into JSON
+* each saved game consists of the epoch time in milliseconds at index 0
+* and the html of the #mineSweeperGame table at index 1
+* displaySavedGames gets the games from storage and makes links to load and delete each game.
+*/
+  if (localStorage.getItem('minesweeperGames')){
+    $("#savedGames").html('');
+    var games = JSON.parse(localStorage.getItem('minesweeperGames'));
+    for (i in games){
+      var dt = new Date(games[i][0]);
+      var timeString = pad2(dt.getMonth() + 1) + '/' + pad2(dt.getDate()) + '/' + pad2(dt.getFullYear()) + ' ' + pad2(dt.getHours()) + ':' + pad2(dt.getMinutes());
+      var loadLink = '<a href="#" onclick="loadGame(\'' + games[i][0] + '\')">' + timeString + '</a>';
+      var deleteLink = '<a href="#" onclick="deleteGame(\'' + games[i][0] + '\')">delete</a>';
+      $("#savedGames").append('<div class="savedGame">' + loadLink + ' (' + deleteLink +')</div>');
+    }
+  }
+}
+function loadGame(time){
+/**
+* minesweeperGames is a localStorage item that is an array of arrays, encoded into JSON
+* each saved game consists of the epoch time in milliseconds at index 0
+* and the html of the #mineSweeperGame table at index 1
+* loadGame takes the epoch time as a parameter, searches through the saved games for the matching
+* item and then replaces the #mineSweeperGame table with the contents from the saved game.
+*/
+  var games = JSON.parse(localStorage.getItem('minesweeperGames'));
+  for (i in games){
+    if (games[i][0] == time){
+      $("#mineSweeperGame").html(games[i][1]);
+    }
+  }
+}
+function deleteGame(time){
+/**
+* minesweeperGames is a localStorage item that is an array of arrays, encoded into JSON
+* each saved game consists of the epoch time in milliseconds at index 0
+* and the html of the #mineSweeperGame table at index 1
+* deleteGame takes the epoch time as a parameter, loops through the saved games for everything
+* except the matching item and then replaces the localStorage with the new array.
+*/
+  var games = JSON.parse(localStorage.getItem('minesweeperGames'));
+  var editedGames = []
+  for (i in games){
+    if (games[i][0] != time){
+      editedGames.push(games[i]);
+    }
+  }
+  localStorage.setItem('minesweeperGames', JSON.stringify(editedGames));
+  displaySavedGames();
 }
 function makeMineSweeper(){
 /**
@@ -339,7 +404,5 @@ $(document).ready(function() {
     saveGame();
   });
   makeMineSweeper();
-  if (localstorage.minesweeperGames){
-    $("#savedGames").text('got games');
-  }
+  displaySavedGames();
 });
