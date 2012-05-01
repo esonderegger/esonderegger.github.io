@@ -258,11 +258,9 @@ function isGameWon(){
 * if so, it returns true, otherwise, returns false.
 */
   var returnVal = true;
-  $('td').each(function(index) {
-    if ($(this).hasClass('notmine')){
-      if (!$(this).hasClass('revealed')){
-        returnVal = false;
-      }
+  $('.notmine').each(function() {
+    if (!$(this).hasClass('revealed')){
+      returnVal = false;
     }
   });
   return returnVal;
