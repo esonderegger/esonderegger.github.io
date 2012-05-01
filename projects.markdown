@@ -19,6 +19,12 @@ Working with the Jekyll posts system added a little bit of complexity. I
 decided to make each photo its own post and create a python script that auto-generates the html files
 that live in the posts directory.
 
+### [Minesweeper in Javascript/jquery](http://esonderegger.github.com/minesweeper.html)
+I built this in response to [Thumbtack's programming challenges](http://www.thumbtack.com/challenges), but had
+a lot of fun with it, so decided to go a little overboard. The wonky UI (validate and cheat buttons) is a result
+of the specifications they give. It definitely made me appreciate how elegant Microsoft's original design was.
+When I'm done applying at Thumbtack, I may give it the more conventional buttons.
+
 Music
 -----
 
