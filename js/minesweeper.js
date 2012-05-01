@@ -1,4 +1,12 @@
 function makeGame(gridSize, numMines) {
+/**
+* makeGame takes two ints as parameters for the grid size and number of mines.
+* it creates a table where the tds have ids like "tile0103".
+* the four digits are a pair of two digit ints correspoding to the row and
+* column of the tile (zero-indexed). The three function calls at the end
+* then add mines and numbers to the table and then adds the click function to
+* each tile.
+*/
   var theTable = $("#mineSweeperGame");
   theTable.html('');
   var trCounter = 0;
@@ -18,45 +26,57 @@ function makeGame(gridSize, numMines) {
   makeClickable();
 }
 function borderingTiles(td){
-    var borderingArray = [];
-    var tileID = td.attr('id');
-    var tileTR = parseInt(tileID.slice(4,6), 10);
-    var tileTD = parseInt(tileID.slice(6), 10);
-    var right = $('#tile' + pad2(tileTR) + pad2(tileTD + 1) );
-    if (right.length > 0){
-      borderingArray.push(right);
-    }
-    var left = $('#tile' + pad2(tileTR) + pad2(tileTD - 1) );
-    if (left.length > 0){
-      borderingArray.push(left);
-    }
-    var downRight = $('#tile' + pad2(tileTR + 1) + pad2(tileTD + 1) );
-    if (downRight.length > 0){
-      borderingArray.push(downRight);
-    }
-    var down = $('#tile' + pad2(tileTR + 1) + pad2(tileTD) );
-    if (down.length > 0){
-      borderingArray.push(down);
-    }
-    var downLeft = $('#tile' + pad2(tileTR + 1) + pad2(tileTD - 1) );
-    if (downLeft.length > 0){
-      borderingArray.push(downLeft);
-    }
-    var upRight = $('#tile' + pad2(tileTR - 1) + pad2(tileTD + 1) );
-    if (upRight.length > 0){
-      borderingArray.push(upRight);
-    }
-    var up = $('#tile' + pad2(tileTR - 1) + pad2(tileTD) );
-    if (up.length > 0){
-      borderingArray.push(up);
-    }
-    var upLeft = $('#tile' + pad2(tileTR - 1) + pad2(tileTD - 1) );
-    if (upLeft.length > 0){
-      borderingArray.push(upLeft);
-    }
-    return borderingArray;
+/**
+* borderingTiles takes a jquery object of a td in the game as a parameter
+* it returns an array of jquery objects of the all the bordering tds.
+*/
+  var borderingArray = [];
+  var tileID = td.attr('id');
+  var tileTR = parseInt(tileID.slice(4,6), 10);
+  var tileTD = parseInt(tileID.slice(6), 10);
+  var right = $('#tile' + pad2(tileTR) + pad2(tileTD + 1) );
+  if (right.length > 0){
+    borderingArray.push(right);
+  }
+  var left = $('#tile' + pad2(tileTR) + pad2(tileTD - 1) );
+  if (left.length > 0){
+    borderingArray.push(left);
+  }
+  var downRight = $('#tile' + pad2(tileTR + 1) + pad2(tileTD + 1) );
+  if (downRight.length > 0){
+    borderingArray.push(downRight);
+  }
+  var down = $('#tile' + pad2(tileTR + 1) + pad2(tileTD) );
+  if (down.length > 0){
+    borderingArray.push(down);
+  }
+  var downLeft = $('#tile' + pad2(tileTR + 1) + pad2(tileTD - 1) );
+  if (downLeft.length > 0){
+    borderingArray.push(downLeft);
+  }
+  var upRight = $('#tile' + pad2(tileTR - 1) + pad2(tileTD + 1) );
+  if (upRight.length > 0){
+    borderingArray.push(upRight);
+  }
+  var up = $('#tile' + pad2(tileTR - 1) + pad2(tileTD) );
+  if (up.length > 0){
+    borderingArray.push(up);
+  }
+  var upLeft = $('#tile' + pad2(tileTR - 1) + pad2(tileTD - 1) );
+  if (upLeft.length > 0){
+    borderingArray.push(upLeft);
+  }
+  return borderingArray;
 }
 function revealTile(td){
+/**
+* revealTile takes a jquery object of a td in the game as a parameter
+* it checks for classes like 'mine' and 'borders2' to see what it should reveal
+* and then changes the text and css accordingly.
+* If tiles have the 'flagged' class, we don't reveal them when clicked.
+* Also, when we reveal tiles not bordering any mines, we want to reveal all bordering tiles.
+* This is called recursively to reveal the area on the board not bordering any mines.
+*/
   if (!td.hasClass('flagged')){
     td.addClass('revealed');
     td.css("background-color","#aaa");
@@ -103,6 +123,11 @@ function revealTile(td){
   }
 }
 function flagTile(td){
+/**
+* flagTile takes a jquery object of a td in the game as a parameter
+* If the tile is not already flagged, it adds a class of 'flagged' to the td and adds a flag
+* otherwise, both are removed.
+*/
   if (td.hasClass('flagged')){
     td.removeClass('flagged');
     td.text('');
@@ -114,6 +139,11 @@ function flagTile(td){
   }
 }
 function addNumber(td){
+/**
+* addNumber takes a jquery object of a td in the game as a parameter
+* it counts how many bordering tiles have the class of 'mine' and adds a class
+* of 'bordersX' where X is the number of mines it borders.
+*/
   if (td.hasClass('notmine')){
     var numMines = 0;
     var borderTiles = borderingTiles(td);
@@ -126,11 +156,19 @@ function addNumber(td){
   }
 }
 function addAllNumbers(){
+/**
+* addAllNumbers finds all the tds in the game and runs addNumber on them.
+*/
   $('td').each(function(index) {
     addNumber($(this));
   });
 }
 function makeClickable(){
+/**
+* makeClickable adds the click functionality to all the tds in the game
+* for each click, it first checks if the game is over and then if the '#clickFlags'
+* checkbox is checked and then calls flagTile or revealTile appropriately.
+*/
   $('td').each(function(index) {
     $(this).click(function() {
       if (!$("#mineSweeperGame").hasClass('gameOver')){
@@ -144,15 +182,20 @@ function makeClickable(){
   });
 }
 function pad2(number) {
-   var str = '' + number;
+/**
+* pad2 takes a positive int 0 <= number < 100 and returns a 2 digit zero padded string
+*/
+  var str = '' + number;
   while (str.length < 2) {
-        str = '0' + str;
-    }
-    return str;
-     //return (number < 10 ? '0' : '') + number
-   
+    str = '0' + str;
+  }
+  return str;
 }
 function colorForNumber(number){
+/**
+* colorForNumber takes an int and returns the css color for text for tiles bordering mines.
+* borrowed from http://inflashstudios.com/minesweeper/tutorial-3.aspx
+*/
   if (number == 1){
     return '#0004FF';
   }
@@ -179,6 +222,12 @@ function colorForNumber(number){
   }
 }
 function addMines(numMines){
+/**
+* addMines takes an int for the number of mines and adds them to the game.
+* for each tile, randomNum is a random int from zero to the number of remaining tiles -1.
+* if randomNum is less than the number of mines we still need to add, we add a class of 'mine'.
+* otherwise we add a class of 'notmine'
+*/
   var tds = $("td");
   var tilesLeft = tds.length;
   var minesLeft = numMines;
@@ -194,6 +243,9 @@ function addMines(numMines){
   });
 }
 function cheatGame(){
+/**
+* cheatGame reveals all tds that don't have the class of 'mine'
+*/
   $('td').each(function(index) {
     if (!$(this).hasClass('mine')){
       revealTile($(this));
@@ -201,6 +253,10 @@ function cheatGame(){
   });
 }
 function isGameWon(){
+/**
+* isGameWon checks every td with a class of 'notmine' to see if it has been revealed.
+* if so, it returns true, otherwise, returns false.
+*/
   var returnVal = true;
   $('td').each(function(index) {
     if ($(this).hasClass('notmine')){
@@ -212,6 +268,13 @@ function isGameWon(){
   return returnVal;
 }
 function validateGame(){
+/**
+* validateGame checks to see if the game is won. If so, it congratulates the user and adds flags
+* to all the tiles where mines were left unrevealed. Otherwise, it shows all the mines, leaving
+* the tile where the user may have clicked on a mine with a red background.
+* in either case, we add the class of 'gameOver' to the table to prevent the user from
+* continuing to play.
+*/
   var gameWon = isGameWon();
   if (gameWon){
     $('#winLossRow').text('You win!');
@@ -240,6 +303,10 @@ function loadGame(){
 
 }
 function makeMineSweeper(){
+/**
+* makeMineSweeper checks the selected values for gridSize and numMines, resets the #winLossRow
+* message and the 'gameOver' class, and then calls makeGame
+*/
   var gridSize = $('#gridSize').val();
   var numMines = $('#numMines').val();
   $("#mineSweeperGame").removeClass('gameOver');
@@ -247,6 +314,9 @@ function makeMineSweeper(){
   makeGame(gridSize,numMines);
 }
 $(document).ready(function() {
+/**
+* when the document is ready, we make the link the buttons to their functions and create the game.
+*/
   $('#newGame').click(function(){
     makeMineSweeper();
   });
