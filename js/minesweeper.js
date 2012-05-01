@@ -20,8 +20,8 @@ function makeGame(gridSize, numMines) {
 function borderingTiles(td){
     var borderingArray = [];
     var tileID = td.attr('id');
-    var tileTR = parseInt(tileID.slice(4,6));
-    var tileTD = parseInt(tileID.slice(6));
+    var tileTR = parseInt(tileID.slice(4,6), 10);
+    var tileTD = parseInt(tileID.slice(6), 10);
     var right = $('#tile' + pad2(tileTR) + pad2(tileTD + 1) );
     if (right.length > 0){
       borderingArray.push(right);
@@ -144,8 +144,12 @@ function makeClickable(){
   });
 }
 function pad2(number) {
-   
-     return (number < 10 ? '0' : '') + number
+   var str = '' + number;
+  while (str.length < 2) {
+        str = '0' + str;
+    }
+    return str;
+     //return (number < 10 ? '0' : '') + number
    
 }
 function colorForNumber(number){
@@ -212,7 +216,7 @@ function validateGame(){
   if (gameWon){
     $('#winLossRow').text('You win!');
     $('.mine').each(function() {
-      flagTile($(this));
+      $(this).html('<img src="/img/glyphicons_266_flag.png" />');
     });
   } else {
     $('#winLossRow').text('You lose!');
@@ -229,10 +233,17 @@ function validateGame(){
   }
   $("#mineSweeperGame").addClass('gameOver');
 }
+function saveGame(){
+
+}
+function loadGame(){
+
+}
 function makeMineSweeper(){
   var gridSize = $('#gridSize').val();
   var numMines = $('#numMines').val();
   $("#mineSweeperGame").removeClass('gameOver');
+  $('#winLossRow').text("Minesweeper in Javascript");
   makeGame(gridSize,numMines);
 }
 $(document).ready(function() {
@@ -245,5 +256,11 @@ $(document).ready(function() {
   $('#validate').click(function(){
     validateGame();
   });
+  $('#saveGame').click(function(){
+    saveGame();
+  });
   makeMineSweeper();
+  if (localstorage.minesweeperGames){
+    $("#savedGames").text('got games');
+  }
 });
