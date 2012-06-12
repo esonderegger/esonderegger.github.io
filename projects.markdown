@@ -11,6 +11,12 @@ Here are some things that I'm working on or have worked on:
 Code
 ----
 
+### [Movie, Presto!](http://www.moviepresto.com)
+This site aims to be an elegant front end to the movie metadata at [themoviedb.org](http://www.themoviedb.org/).
+It attempts to find matching entries in the iTunes, Amazon instant, and Nexflix catalogs and provide
+links directly to the desired content. It is built using [Flask](http://flask.pocoo.org/) and is hosted on
+[App Engine](https://developers.google.com/appengine/).
+
 ### [Modal Photo Gallery for Bootstrap/Jekyll](https://gist.github.com/2334002)
 I put this together because I was frustrated with the state of image galleries available for
 Twitter Bootstrap. [Click here to see a demo.](http://esonderegger.github.com/photography.html)
