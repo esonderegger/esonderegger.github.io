@@ -63,14 +63,3 @@ James Madison University
 Harrisonburg, VA
 
 Bachelor of Music, Music Industry, December 2003
-
-REFERENCES
-==========
-
-Colonel Michael J. Colburn - Director, “The President's Own” United States Marine Band
-
-michael.j.colburn@usmc.mil - (202) 433-4001
-
-MGySgt Karl J. Jackson – Chief Audio Technician, “The President's Own” United States Marine Band 
-
-karl.j.jackson@usmc.mil - (202) 433-4398
