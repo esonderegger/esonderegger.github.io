@@ -11,19 +11,22 @@ title: New Year, New Blog
 
 I'm not really one for specific resolutions, but in a general sense I'm currently trying to live well according to the following basic ideals (I don't know why I like writing these in the second person):
 
-** Take Care of Your Body
+Take Care of Your Body
+----------------------
 
 - *Sleep!*
 - Exercise regularly. This is ideally a wide range of activities, from playing ultimate to crossfit to cycling to swimming.
 - Eat real food. This one really shouldn't be so hard.
 
-** Take Care of Your Mind
+Take Care of Your Mind
+----------------------
 
 - *Sleep!*
 - Read. My current habits include reading too many articles and not enough real books. In 2014 I want to be regularly reading a novel or book-length nonfiction.
 - Solve problems. For me that means doing puzzles like those found on [CodeEval](https://www.codeeval.com) and working on side projects like building a [static site generator](https://github.com/esonderegger/jagss).
 
-** Take Care of Your Loved Ones
+Take Care of Your Loved Ones
+----------------------------
 
 - This one is a little harder to put into bullet points because it means being more reactive than proactive. It means listening to figure out what those loved ones need and then help out in whatever way possible.
 
